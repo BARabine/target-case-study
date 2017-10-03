@@ -1,0 +1,25 @@
+{
+  "name": "target-case-study",
+  "version": "0.1.0",
+  "author": "Bruce Rabine",
+  "description": "Programming Case Study for Target",
+  "license": "None",
+  "private": true,
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "moment": "^2.18.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-moment": "^0.6.5",
+    "react-render-html": "^0.5.2",
+    "react-scripts": "1.0.14",
+    "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "webpack": "webpack"
+  }
+}
