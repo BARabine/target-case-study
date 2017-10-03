@@ -20,6 +20,7 @@
     "react-moment": "^0.6.5",
     "react-render-html": "^0.5.2",
     "react-scripts": "1.0.14",
+    "react-slick": "^0.15.4",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
   },

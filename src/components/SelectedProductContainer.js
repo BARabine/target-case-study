@@ -28,7 +28,7 @@ class SelectedProductContainer extends Component {
         return null;
       }
       return (
-        <div className="alt-images">(Image Carousel goes Here)</div>
+        <div className="alt-images">(Image Carousel with {images.length} images goes Here)</div>
       )
     }
 
