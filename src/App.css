@@ -12,6 +12,7 @@
   justify-content: space-around;
 }
 
+/* Two columns */
 .product-columns {
   /*border: 1px solid gold;*/
   max-width: 400px;
@@ -24,11 +25,9 @@
 /* Title, primary image, image carousel */
 .selected-product {
   /*border: 1px solid red;*/
-  /*max-width: 400px;*/
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: center;*/
 }
 .product-title {
   font-size: 1.2em;
@@ -78,7 +77,12 @@
 /* Quantity, buttons, return info, add to buttons */
 .purchase-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 20px 20px;
+}
+.purchase-item {
+  font-size: 0.7em;
 }
 
 
@@ -123,7 +127,6 @@
   /*border: 1px solid blue;*/
   display: flex;
   flex-direction: row;
-  /*justify-content: space-between;*/
 }
 .pro-con-row {
   /*border: 1px solid green;*/

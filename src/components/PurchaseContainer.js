@@ -13,19 +13,29 @@ class PurchaseContainer extends Component {
   componentWillReceiveProps(newProps) {
     const index = newProps.selected;
     const productData = Number.isInteger(index) ? newProps.productData[index] : null;
-    // console.log(`--->> New Props = ${JSON.stringify(productData)}`);
     if (productData !== null) {
       this.setState({ data: productData });
     }
   }
 
   render() {
-    // const promos = this.state.data ? this.state.data.Promotions : null;
-    // console.log(`>>> promos = ${JSON.stringify(promos)}`);
-    // const promoList = promos ? this.getPromoList(promos) : null;
+    const pCode = this.state.data ? parseInt(this.state.data.purchasingChannelCode, 10) : null;
+    // console.log(`>>>> pCode = ${pCode} => ${typeof pCode}`);
+
+    const addToCartEnabled = Number.isInteger(pCode) ? (pCode === 0 || pCode === 1) : null;
+    // console.log(`==> addToCartEnabled = ${addToCartEnabled}`);
+    const addToCartStr = addToCartEnabled ? "Add to Cart is Enabled" : "Add to Cart is Disabled";
+
+    const pickupInStoreEnabled = Number.isInteger(pCode) ? (pCode === 0 || pCode === 2) : null;
+    // console.log(`==>> pickupInStoreEnabled = ${pickupInStoreEnabled}`);
+    const pickupInStoreStr = pickupInStoreEnabled ? "Pickup in Store is Enabled" : "Pickup in Store is Disabled";
 
     return (
-      <div className="purchase-container">(Placeholder for PurchaseContainer)</div>
+      <div className="purchase-container">
+        <div className="purchase-item">(Placeholder for PurchaseContainer)</div>
+        <div className="purchase-item">{addToCartStr}</div>
+        <div className="purchase-item">{pickupInStoreStr}</div>
+      </div>
     )
   }
 

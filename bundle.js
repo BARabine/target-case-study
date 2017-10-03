@@ -49517,6 +49517,8 @@ var _ProductReviews2 = _interopRequireDefault(_ProductReviews);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -49540,15 +49542,55 @@ var App = function (_Component) {
 
   _createClass(App, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {
-      var catalogData = _itemData2.default ? _itemData2.default.CatalogEntryView : null;
-      // FIXME -- fix the logic to handle selected index,
-      // but for now, just use index = 0.
-      var index = catalogData ? 0 : null;
-      if (Number.isInteger(index)) {
-        this.setState({ allData: catalogData, selectedIndex: index });
+    value: function () {
+      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+        var catalogData, index;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _itemData2.default;
+
+              case 2:
+                if (!_context.sent) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _context.t0 = _itemData2.default.CatalogEntryView;
+                _context.next = 7;
+                break;
+
+              case 6:
+                _context.t0 = null;
+
+              case 7:
+                catalogData = _context.t0;
+
+                // console.log(`>> catalogData: ${JSON.stringify(catalogData)}`);
+                // FIXME -- fix the logic to handle selected index,
+                // but for now, just use index = 0.
+                index = catalogData ? 0 : null;
+
+                if (Number.isInteger(index)) {
+                  this.setState({ allData: catalogData, selectedIndex: index });
+                }
+
+              case 10:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentDidMount() {
+        return _ref.apply(this, arguments);
       }
-    }
+
+      return componentDidMount;
+    }()
   }, {
     key: 'render',
     value: function render() {
@@ -49605,7 +49647,7 @@ exports = module.exports = __webpack_require__(35)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n.product-container {\n  /*border: 1px solid blue;*/\n  margin-top: 22px;\n  display: flex;\n  max-width: 1024px;\n  justify-content: space-around;\n}\n\n.product-columns {\n  /*border: 1px solid gold;*/\n  max-width: 400px;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n\n\n/* Title, primary image, image carousel */\n.selected-product {\n  /*border: 1px solid red;*/\n  /*max-width: 400px;*/\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  /*justify-content: center;*/\n}\n.product-title {\n  font-size: 1.2em;\n  text-align: center;\n}\n.primary-image {\n  /*flex-basis: auto;*/\n}\n.alt-images {\n  margin-top: 10px;\n  text-align: center;\n}\n\n\n/* Formatted price, price qualifier */\n.product-offers {\n  /*border: 1px solid orange;*/\n  display: flex;\n  justify-content: flex-start;\n  align-items: baseline;\n}\n.formatted-price {\n  font-size: 1.5em;\n  margin-right: 20px;\n}\n.price-qualifier {\n  font-size: 0.7em;\n  margin-right: auto;\n}\n\n\n/* Promotions */\n.promotions {\n  /*border: 1px solid #c00;*/\n  margin-top: 20px;\n  list-style-type: circle;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n  /*list-style-image: url('./target-tag.png');*/\n}\n.promotions li {\n  font-size: 0.8em;\n  color: #c00;\n}\n\n/* Quantity, buttons, return info, add to buttons */\n.purchase-container {\n  display: flex;\n  margin: 20px 20px;\n}\n\n\n/* Product highlights */\n.product-highlights-container {\n  /*border: 1px solid grey;*/\n  display: flex;\n  flex-direction: column;\n}\n.product-highlights-title {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.product-features {\n  margin-top: 10px;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n}\n.product-features li {\n  font-size: 0.8em;\n}\n\n\n/* Customer Reviews */\n.customer-review-container {\n  /*border: 1px solid grey;*/\n  margin-top: 23px;\n  display: flex;\n  flex-direction: column;\n}\n.overall-info {\n  /*border: 1px solid lightgrey;*/\n  display: flex;\n  justify-content: space-between;\n}\n.overall-stars {\n}\n.all-reviews {\n}\n.pro-con-info {\n  /*border: 1px solid blue;*/\n  display: flex;\n  flex-direction: row;\n  /*justify-content: space-between;*/\n}\n.pro-con-row {\n  /*border: 1px solid green;*/\n  margin-right: 10px;\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.pro-con-label {\n}\n.pro-con-sublabel {\n  font-size: 0.7em;\n  font-weight: lighter;\n  margin-bottom: 12px;\n}\n.review-details {\n  display: flex;\n  flex-direction: column;\n}\n.review-title {\n  font-weight: bold;\n}\n.review-body {\n  font-size: 0.8em;\n  font-weight: lighter;\n}\n.review-screen-name {\n  font-size: 0.9em;\n  color: blue;\n}\n.date-posted {\n  margin-left: 20px;\n  font-size: 0.9em;\n  color: #000;\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n.product-container {\n  /*border: 1px solid blue;*/\n  margin-top: 22px;\n  display: flex;\n  max-width: 1024px;\n  justify-content: space-around;\n}\n\n/* Two columns */\n.product-columns {\n  /*border: 1px solid gold;*/\n  max-width: 400px;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n\n\n/* Title, primary image, image carousel */\n.selected-product {\n  /*border: 1px solid red;*/\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.product-title {\n  font-size: 1.2em;\n  text-align: center;\n}\n.primary-image {\n  /*flex-basis: auto;*/\n}\n.alt-images {\n  margin-top: 10px;\n  text-align: center;\n}\n\n\n/* Formatted price, price qualifier */\n.product-offers {\n  /*border: 1px solid orange;*/\n  display: flex;\n  justify-content: flex-start;\n  align-items: baseline;\n}\n.formatted-price {\n  font-size: 1.5em;\n  margin-right: 20px;\n}\n.price-qualifier {\n  font-size: 0.7em;\n  margin-right: auto;\n}\n\n\n/* Promotions */\n.promotions {\n  /*border: 1px solid #c00;*/\n  margin-top: 20px;\n  list-style-type: circle;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n  /*list-style-image: url('./target-tag.png');*/\n}\n.promotions li {\n  font-size: 0.8em;\n  color: #c00;\n}\n\n/* Quantity, buttons, return info, add to buttons */\n.purchase-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 20px 20px;\n}\n.purchase-item {\n  font-size: 0.7em;\n}\n\n\n/* Product highlights */\n.product-highlights-container {\n  /*border: 1px solid grey;*/\n  display: flex;\n  flex-direction: column;\n}\n.product-highlights-title {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.product-features {\n  margin-top: 10px;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n}\n.product-features li {\n  font-size: 0.8em;\n}\n\n\n/* Customer Reviews */\n.customer-review-container {\n  /*border: 1px solid grey;*/\n  margin-top: 23px;\n  display: flex;\n  flex-direction: column;\n}\n.overall-info {\n  /*border: 1px solid lightgrey;*/\n  display: flex;\n  justify-content: space-between;\n}\n.overall-stars {\n}\n.all-reviews {\n}\n.pro-con-info {\n  /*border: 1px solid blue;*/\n  display: flex;\n  flex-direction: row;\n}\n.pro-con-row {\n  /*border: 1px solid green;*/\n  margin-right: 10px;\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.pro-con-label {\n}\n.pro-con-sublabel {\n  font-size: 0.7em;\n  font-weight: lighter;\n  margin-bottom: 12px;\n}\n.review-details {\n  display: flex;\n  flex-direction: column;\n}\n.review-title {\n  font-weight: bold;\n}\n.review-body {\n  font-size: 0.8em;\n  font-weight: lighter;\n}\n.review-screen-name {\n  font-size: 0.9em;\n  color: blue;\n}\n.date-posted {\n  margin-left: 20px;\n  font-size: 0.9em;\n  color: #000;\n}\n", ""]);
 
 // exports
 
@@ -49643,13 +49685,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SelectedProduct = function (_Component) {
-  _inherits(SelectedProduct, _Component);
+var SelectedProductContainer = function (_Component) {
+  _inherits(SelectedProductContainer, _Component);
 
-  function SelectedProduct(props) {
-    _classCallCheck(this, SelectedProduct);
+  function SelectedProductContainer(props) {
+    _classCallCheck(this, SelectedProductContainer);
 
-    var _this = _possibleConstructorReturn(this, (SelectedProduct.__proto__ || Object.getPrototypeOf(SelectedProduct)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (SelectedProductContainer.__proto__ || Object.getPrototypeOf(SelectedProductContainer)).call(this, props));
 
     _this.state = {
       data: null
@@ -49657,7 +49699,7 @@ var SelectedProduct = function (_Component) {
     return _this;
   }
 
-  _createClass(SelectedProduct, [{
+  _createClass(SelectedProductContainer, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
       var index = newProps.selected;
@@ -49705,10 +49747,10 @@ var SelectedProduct = function (_Component) {
     }
   }]);
 
-  return SelectedProduct;
+  return SelectedProductContainer;
 }(_react.Component);
 
-exports.default = SelectedProduct;
+exports.default = SelectedProductContainer;
 
 /***/ }),
 /* 187 */
@@ -49916,7 +49958,6 @@ var PurchaseContainer = function (_Component) {
     value: function componentWillReceiveProps(newProps) {
       var index = newProps.selected;
       var productData = Number.isInteger(index) ? newProps.productData[index] : null;
-      // console.log(`--->> New Props = ${JSON.stringify(productData)}`);
       if (productData !== null) {
         this.setState({ data: productData });
       }
@@ -49924,14 +49965,35 @@ var PurchaseContainer = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      // const promos = this.state.data ? this.state.data.Promotions : null;
-      // console.log(`>>> promos = ${JSON.stringify(promos)}`);
-      // const promoList = promos ? this.getPromoList(promos) : null;
+      var pCode = this.state.data ? parseInt(this.state.data.purchasingChannelCode, 10) : null;
+      // console.log(`>>>> pCode = ${pCode} => ${typeof pCode}`);
+
+      var addToCartEnabled = Number.isInteger(pCode) ? pCode === 0 || pCode === 1 : null;
+      // console.log(`==> addToCartEnabled = ${addToCartEnabled}`);
+      var addToCartStr = addToCartEnabled ? "Add to Cart is Enabled" : "Add to Cart is Disabled";
+
+      var pickupInStoreEnabled = Number.isInteger(pCode) ? pCode === 0 || pCode === 2 : null;
+      // console.log(`==>> pickupInStoreEnabled = ${pickupInStoreEnabled}`);
+      var pickupInStoreStr = pickupInStoreEnabled ? "Pickup in Store is Enabled" : "Pickup in Store is Disabled";
 
       return _react2.default.createElement(
         'div',
         { className: 'purchase-container' },
-        '(Placeholder for PurchaseContainer)'
+        _react2.default.createElement(
+          'div',
+          { className: 'purchase-item' },
+          '(Placeholder for PurchaseContainer)'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'purchase-item' },
+          addToCartStr
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'purchase-item' },
+          pickupInStoreStr
+        )
       );
     }
   }]);

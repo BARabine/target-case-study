@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import itemJsonData from './item-data.json';
-import SelectedProduct from './components/SelectedProductContainer';
+import SelectedProductContainer from './components/SelectedProductContainer';
 import ProductOffers from './components/ProductOffers';
 import Promotions from './components/Promotions';
 import PurchaseContainer from './components/PurchaseContainer';
@@ -19,8 +19,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    const catalogData = itemJsonData ? itemJsonData.CatalogEntryView : null;
+  async componentDidMount() {
+    const catalogData = await itemJsonData ? itemJsonData.CatalogEntryView : null;
+    // console.log(`>> catalogData: ${JSON.stringify(catalogData)}`);
     // FIXME -- fix the logic to handle selected index,
     // but for now, just use index = 0.
     const index = catalogData ? 0 : null;
@@ -34,7 +35,7 @@ class App extends Component {
       <div className="product-container">
 
         <div className="product-columns">
-          <SelectedProduct
+          <SelectedProductContainer
             productData={this.state.allData}
             selected={this.state.selectedIndex}
           />
@@ -62,7 +63,7 @@ class App extends Component {
             selected={this.state.selectedIndex}
           />
         </div>
-        
+
       </div>
     );
   }
