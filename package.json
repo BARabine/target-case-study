@@ -6,6 +6,13 @@
   "license": "None",
   "private": true,
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
     "font-awesome": "^4.7.0",
     "moment": "^2.18.1",
     "react": "^16.0.0",
@@ -13,6 +20,7 @@
     "react-moment": "^0.6.5",
     "react-render-html": "^0.5.2",
     "react-scripts": "1.0.14",
+    "style-loader": "^0.18.2",
     "webpack": "^3.6.0"
   },
   "scripts": {
