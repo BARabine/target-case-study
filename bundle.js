@@ -49599,19 +49599,15 @@ var App = function (_Component) {
         { className: 'product-container' },
         _react2.default.createElement(
           'div',
-          { className: 'product-columns' },
+          { className: 'product-info-item' },
           _react2.default.createElement(_SelectedProductContainer2.default, {
-            productData: this.state.allData,
-            selected: this.state.selectedIndex
-          }),
-          _react2.default.createElement(_ProductReviews2.default, {
             productData: this.state.allData,
             selected: this.state.selectedIndex
           })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'product-columns' },
+          { className: 'product-info-item product-group' },
           _react2.default.createElement(_ProductOffers2.default, {
             productData: this.state.allData,
             selected: this.state.selectedIndex
@@ -49625,6 +49621,14 @@ var App = function (_Component) {
             selected: this.state.selectedIndex
           }),
           _react2.default.createElement(_ProductHighlights2.default, {
+            productData: this.state.allData,
+            selected: this.state.selectedIndex
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'product-info-item' },
+          _react2.default.createElement(_ProductReviews2.default, {
             productData: this.state.allData,
             selected: this.state.selectedIndex
           })
@@ -49647,7 +49651,7 @@ exports = module.exports = __webpack_require__(35)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n.product-container {\n  /*border: 1px solid blue;*/\n  margin-top: 22px;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n}\n\n/* Two columns */\n.product-columns {\n  /*border: 1px solid gold;*/\n  margin: 0 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  flex: 2;\n}\n.product-columns.selected-product {\n  min-width: 400px;\n  flex: 1;\n}\n\n\n/* Title, primary image, image carousel */\n.selected-product {\n  /*border: 1px solid red;*/\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.product-title {\n  font-size: 1.2em;\n  text-align: center;\n}\n.primary-image {\n  /*flex-basis: auto;*/\n}\n.alt-images {\n  margin-top: 10px;\n  text-align: center;\n}\n\n\n/* Formatted price, price qualifier */\n.product-offers {\n  /*border: 1px solid orange;*/\n  display: flex;\n  justify-content: flex-start;\n  align-items: baseline;\n}\n.formatted-price {\n  font-size: 1.5em;\n  margin-right: 20px;\n}\n.price-qualifier {\n  font-size: 0.7em;\n  margin-right: auto;\n}\n\n\n/* Promotions */\n.promotions {\n  /*border: 1px solid #c00;*/\n  margin-top: 20px;\n  list-style-type: circle;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n  /*list-style-image: url('./target-tag.png');*/\n}\n.promotions li {\n  font-size: 0.8em;\n  color: #c00;\n}\n\n/* Quantity, buttons, return info, add to buttons */\n.purchase-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 20px 20px;\n}\n.purchase-item {\n  font-size: 0.7em;\n}\n\n\n/* Product highlights */\n.product-highlights-container {\n  /*border: 1px solid grey;*/\n  display: flex;\n  flex-direction: column;\n}\n.product-highlights-title {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.product-features {\n  margin-top: 10px;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n}\n.product-features li {\n  font-size: 0.8em;\n}\n\n\n/* Customer Reviews */\n.customer-review-container {\n  /*border: 1px solid grey;*/\n  margin-top: 23px;\n  display: flex;\n  flex-direction: column;\n}\n.overall-info {\n  /*border: 1px solid lightgrey;*/\n  display: flex;\n  justify-content: space-between;\n}\n.overall-stars {\n}\n.all-reviews {\n}\n.pro-con-info {\n  /*border: 1px solid blue;*/\n  display: flex;\n  flex-direction: row;\n}\n.pro-con-row {\n  /*border: 1px solid green;*/\n  margin-right: 10px;\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.pro-con-label {\n}\n.pro-con-sublabel {\n  font-size: 0.7em;\n  font-weight: lighter;\n  margin-bottom: 12px;\n}\n.review-details {\n  display: flex;\n  flex-direction: column;\n}\n.review-title {\n  font-weight: bold;\n}\n.review-body {\n  font-size: 0.8em;\n  font-weight: lighter;\n}\n.review-screen-name {\n  font-size: 0.9em;\n  color: blue;\n}\n.date-posted {\n  margin-left: 20px;\n  font-size: 0.9em;\n  color: #000;\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\n/* Overall container for mobile layout */\n.product-container {\n  margin-top: 22px;\n  display: flex;\n  flex-direction: column;\n}\n@media only screen and (min-width: 600px) {\n  /* Overall container for desktop layout */\n  .product-container {\n    flex-direction: row;\n    flex-wrap: wrap;\n  }\n}\n/* Top level items in flex container */\n.product-info-item {\n  display: flex;\n  align-items: center;\n}\n@media only screen and (min-width: 640px) {\n  .product-info-item {\n    flex-basis: calc(100% / 2);\n    align-items: flex-start;\n  }\n}\n/* Group with ProductOffers, Promotions,\nPurchaseContainer, and ProductHighlights */\n.product-info-item.product-group {\n  flex-direction: column;\n}\n\n\n\n/* Title, primary image, image carousel */\n.selected-product {\n  min-width: 420px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.product-title {\n  font-size: 1.2em;\n  text-align: center;\n}\n.primary-image {\n  /*flex-basis: auto;*/\n}\n.alt-images {\n  margin-top: 10px;\n  text-align: center;\n  margin-bottom: 20px;\n}\n\n\n/* Formatted price, price qualifier */\n.product-offers {\n  display: flex;\n  justify-content: flex-start;\n  align-items: baseline;\n  margin-left: 10px;\n}\n.formatted-price {\n  font-size: 1.5em;\n  margin-right: 20px;\n}\n.price-qualifier {\n  font-size: 0.7em;\n  margin-right: auto;\n}\n\n\n/* Promotions */\n.promotions {\n  margin: 10px;\n  list-style-type: circle;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n  /*list-style-image: url('./target-tag.png');*/\n}\n.promotions li {\n  font-size: 0.8em;\n  color: #c00;\n}\n\n/* Quantity, buttons, return info, add to buttons */\n.purchase-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin: 20px 40px;\n}\n.purchase-item {\n  font-size: 0.7em;\n}\n\n\n/* Product highlights */\n.product-highlights-container {\n  margin-left: 10px;\n  display: flex;\n  flex-direction: column;\n}\n.product-highlights-title {\n  font-size: 1.5em;\n  font-weight: bold;\n}\n.product-features {\n  margin-top: 10px;\n  list-style-position: inside;\n  display: flex;\n  flex-direction: column;\n}\n.product-features li {\n  font-size: 0.8em;\n}\n\n\n/* Customer Reviews */\n.customer-review-container {\n  margin: 20px 10px;\n  display: flex;\n  flex-direction: column;\n}\n.overall-info {\n  margin-bottom: 10px;\n  display: flex;\n  justify-content: space-between;\n}\n.overall-stars {\n}\n.all-reviews {\n}\n.pro-con-info {\n  display: flex;\n  flex-direction: row;\n}\n.pro-con-row {\n  margin-right: 10px;\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n}\n.pro-con-label {\n}\n.pro-con-sublabel {\n  font-size: 0.7em;\n  font-weight: lighter;\n  margin-bottom: 12px;\n}\n.review-details {\n  display: flex;\n  flex-direction: column;\n}\n.review-title {\n  font-weight: bold;\n}\n.review-body {\n  font-size: 0.8em;\n  font-weight: lighter;\n}\n.review-screen-name {\n  font-size: 0.9em;\n  color: blue;\n}\n.date-posted {\n  margin-left: 20px;\n  font-size: 0.9em;\n  color: #000;\n}\n", ""]);
 
 // exports
 
